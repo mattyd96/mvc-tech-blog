@@ -1,0 +1,17 @@
+{
+  "name": "week-14",
+  "version": "1.0.0",
+  "description": "Small blog full stack app (node,sequelize,handlebars)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthew Durflinger",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.17.0"
+  }
+}
