@@ -5,7 +5,7 @@ const { User, Post } = require('../../models');
 
 // GET all galleries for homepage
 router.get('/', async (req, res) => {
-    res.send('hi');
+    res.status(200).render('welcome');
 });
 
 module.exports = router;
