@@ -1,0 +1,20 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 25rem;
+  margin: auto;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  border-color: red;
+}
+
+.hidden {
+  display: none;
+}

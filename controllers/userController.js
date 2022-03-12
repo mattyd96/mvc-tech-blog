@@ -28,7 +28,7 @@ module.exports = {
         // if it does return error message
         if (usernameExists) {
           res.status(400).json({
-            error: ['username exists']
+            errorList: ['username exists']
           });
         }
 
@@ -41,7 +41,7 @@ module.exports = {
         // if it does return error message
         if (emailExists) {
           res.status(400).json({
-            error: ['email exists'],
+            errorList: ['email exists'],
           });
         }
 
