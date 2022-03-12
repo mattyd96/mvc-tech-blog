@@ -6,11 +6,13 @@ const handleErrors = err => {
     const emailErr = document.querySelector('#email-error');
     const passErr = document.querySelector('#password-error');
     const usernameErr = document.querySelector('#username-error');
+    const loginErr = document.querySelector('#login-error');
 
     // remove any existing error messages
     emailErr.classList.add('hidden');
     passErr.classList.add('hidden');
     usernameErr.classList.add('hidden');
+    loginErr.classList.add('hidden');
 
     // get errorlist constructed on backend
     const errors = err.errorList;
@@ -32,6 +34,9 @@ const handleErrors = err => {
         if(error === 'email exists') {
             emailErr.textContent = 'There is already an account with this email';
             emailErr.classList.remove('hidden');
+        }
+        if(error === 'no user' || error === 'incorrect password') {
+            loginErr.classList.remove('hidden');
         }
     });
 };
@@ -65,9 +70,31 @@ const signup = async (event) => {
 };
 
 const login = (event) => {
-  const email = document.getElementById("login-id").value;
-  const password = document.getElementById("signup-password").value;
+  event.preventDefault();
+
+  const id = document.getElementById("login-id").value;
+  const password = document.getElementById("login-password").value;
+
+  try{
+    const response = await fetch("/user/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ id, password }),
+    });
+
+    if (response.ok) {
+      document.location.replace('/')
+    }
+
+    const error = await response.json();
+    handleErrors(error);
+
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 signupForm.addEventListener("submit", signup);
-//loginForm.addEventListener("submit");
+loginForm.addEventListener("submit");
