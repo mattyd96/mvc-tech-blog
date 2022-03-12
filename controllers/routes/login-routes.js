@@ -3,10 +3,10 @@ const auth = require('../../utils/auth');
 const { getLoginForm, getSignupForm } = require('../loginController');
 const { User, Post } = require('../../models');
 
-// GET home
+// GET login form
 router.get('/login', getLoginForm);
 
-// GET welcome if user not logged in
+// GET signup form
 router.get('/signup', getSignupForm);
 
 module.exports = router;
