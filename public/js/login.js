@@ -6,13 +6,11 @@ const handleErrors = err => {
     const emailErr = document.querySelector('#email-error');
     const passErr = document.querySelector('#password-error');
     const usernameErr = document.querySelector('#username-error');
-    const loginErr = document.querySelector('#login-error');
 
     // remove any existing error messages
     emailErr.classList.add('hidden');
     passErr.classList.add('hidden');
     usernameErr.classList.add('hidden');
-    loginErr.classList.add('hidden');
 
     // get errorlist constructed on backend
     const errors = err.errorList;
@@ -35,11 +33,18 @@ const handleErrors = err => {
             emailErr.textContent = 'There is already an account with this email';
             emailErr.classList.remove('hidden');
         }
-        if(error === 'login') {
-            loginErr.classList.remove('hidden');
-        }
     });
 };
+
+const handleLoginErrors = err => {
+  const loginErr = document.querySelector('#login-error');
+
+  loginErr.classList.add('hidden');
+
+  if(err.errorList[0] === 'login') {
+    loginErr.classList.remove('hidden');
+  }
+}
 
 const signup = async (event) => {
   event.preventDefault();
@@ -69,7 +74,7 @@ const signup = async (event) => {
   }
 };
 
-const login = (event) => {
+const login = async (event) => {
   event.preventDefault();
 
   const id = document.getElementById("login-id").value;
@@ -88,7 +93,7 @@ const login = (event) => {
       document.location.replace('/')
     } else {
       const error = await response.json();
-      handleErrors(error);
+      handleLoginErrors(error);
     }
 
   } catch (err) {
@@ -96,5 +101,5 @@ const login = (event) => {
   }
 };
 
-signupForm.addEventListener("submit", signup);
-loginForm.addEventListener("submit", login);
+if(signupForm) {signupForm.addEventListener("submit", signup);}
+if(loginForm) {loginForm.addEventListener("submit", login);}

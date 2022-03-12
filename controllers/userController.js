@@ -32,6 +32,7 @@ module.exports = {
 
       if(user) {
         const passMatch = await user.checkPassword(req.body.password);
+        console.log(passMatch);
 
         if(passMatch) {
           req.session.save(() => {
@@ -40,11 +41,11 @@ module.exports = {
             res.redirect('/');
           });
         }
+      } else {
+        res.status(500).json({
+          errorList: ['login']
+        });
       }
-
-      res.status(500).json({
-        errorList: ['login']
-      })
     },
 
     signup: async (req, res) => {
