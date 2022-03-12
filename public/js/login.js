@@ -6,12 +6,12 @@ const handleErrors = err => {};
 const signup = async (event) => {
   event.preventDefault();
 
-  const username = document.getElementById("signup-username");
-  const email = document.getElementById("signup-email");
-  const password = document.getElementById("signup-password");
+  const username = document.getElementById("signup-username").value;
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
 
   try {
-    const response = await fetch("/signup", {
+    const response = await fetch("/user/signup", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -23,11 +23,11 @@ const signup = async (event) => {
         document.location.replace('/') :
         handleErrors(response.json());
   } catch (err) {
-      console.log('oh no');
+      console.log(err);
   }
 };
 
 const login = (event) => {};
 
-signupForm.addEventListener("submit");
-loginForm.addEventListener("submit");
+signupForm.addEventListener("submit", signup);
+//loginForm.addEventListener("submit");
