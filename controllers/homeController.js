@@ -1,7 +1,8 @@
 module.exports = {
     getHome: (req, res) => {
         try {
-            res.status(200).render('dashboard');
+            const logged_in = req.session.logged_in;
+            res.status(200).render('dashboard', { logged_in });
         } catch (err) {
             //TODO: create error page
             res.status(500).json(err);
