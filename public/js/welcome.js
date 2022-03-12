@@ -5,11 +5,8 @@ const getForm = async event => {
     event.preventDefault();
     const route = event.target.value;
 
-    await fetch(`/${route}`).catch(err => {
-        console.log('oh no');
-    });
+    window.location.href = `/${route}`;
 };
 
 loginBtn.addEventListener('click', getForm);
 signupBtn.addEventListener('click', getForm);
-
