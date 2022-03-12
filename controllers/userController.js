@@ -1,5 +1,5 @@
 module.exports = {
-    getUser: () => {
-        
+    Login: (req, res) => {
+
     }
 };
