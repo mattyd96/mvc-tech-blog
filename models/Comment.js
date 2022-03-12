@@ -29,10 +29,6 @@ Comment.init(
           unique: false
       }
     },
-    date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-    },
     content: {
         type: DataTypes.STRING,
         allowNull: false

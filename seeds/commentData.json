@@ -1,0 +1,42 @@
+[
+  {
+    "user_id": 1,
+    "post_id": 4,
+    "content": "Too late"
+  },
+  {
+    "user_id": 1,
+    "post_id": 8,
+    "content": "Told you so."
+  },
+  {
+    "user_id": 2,
+    "post_id": 8,
+    "content": "Bring me back some stories so I can write some songs"
+  },
+  {
+    "user_id": 2,
+    "post_id": 2,
+    "content": "Thanks for the invite"
+  },
+  {
+    "user_id": 3,
+    "post_id": 2,
+    "content": "Why are you hiding out there?"
+  },
+  {
+    "user_id": 3,
+    "post_id": 8,
+    "content": "smh"
+  },
+  {
+    "user_id": 4,
+    "post_id": 2,
+    "content": "That's what you get for making me train so much there"
+  },
+  {
+    "user_id": 4,
+    "post_id": 6,
+    "content": "dw I'm just wandering."
+  }
+]

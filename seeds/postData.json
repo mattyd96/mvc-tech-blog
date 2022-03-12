@@ -1,0 +1,42 @@
+[
+  {
+    "user_id": 1,
+    "title": "There's a Bruxa in the house",
+    "content": "Ok yall have to vacate the premises."
+  },
+  {
+    "user_id": 1,
+    "title": "Stuck with vessemir again",
+    "content": "Another winter getting lectured. Fun times."
+  },
+  {
+    "user_id": 2,
+    "title": "Can't think of a song",
+    "content": "Severe writers block. Send help please."
+  },
+  {
+    "user_id": 2,
+    "title": "I miss Geralt",
+    "content": "Don't tell him I said that though."
+  },
+  {
+    "user_id": 3,
+    "title": "Looking to sell some supplies.",
+    "content": "Bunch of old apothecary equipment for sale. Hit me up if you are interested."
+  },
+  {
+    "user_id": 3,
+    "title": "I lost ciri again",
+    "content": "She went and jumped into another portal."
+  },
+  {
+    "user_id": 4,
+    "title": "Looking for other planeswalkers around",
+    "content": "Hoid you anywhere?"
+  },
+  {
+    "user_id": 4,
+    "title": "I'm lost",
+    "content": "Ok jumped through one too many portals. any google maps avail?"
+  }
+]
