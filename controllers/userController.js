@@ -14,9 +14,39 @@ const createErrorMessage = errors => {
 
 
 module.exports = {
-    login: (req, res) => {
+    login: async (req, res) => {
+      // see if username exists
+      const usernameExists = await User.findOne({   
+        where: { username: req.body.id }
+      });
 
+      // see if email exists
+      const emailExists = await User.findOne({   
+        where: { email: req.body.id }
+      });
+
+      // get user if there is one that matches
+      const user =  usernameExists ? usernameExists : 
+                    emailExists ? emailExists :
+                    null;
+
+      if(user) {
+        const passMatch = await user.checkPassword(req.body.password);
+
+        if(passMatch) {
+          req.session.save(() => {
+            req.session.user_id = user.id;
+            req.session.logged_in = true;
+            res.redirect('/');
+          });
+        }
+      }
+
+      res.status(500).json({
+        errorList: ['login']
+      })
     },
+
     signup: async (req, res) => {
       console.log(req.body.username);
       try {

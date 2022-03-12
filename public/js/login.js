@@ -35,7 +35,7 @@ const handleErrors = err => {
             emailErr.textContent = 'There is already an account with this email';
             emailErr.classList.remove('hidden');
         }
-        if(error === 'no user' || error === 'incorrect password') {
+        if(error === 'login') {
             loginErr.classList.remove('hidden');
         }
     });
@@ -59,10 +59,10 @@ const signup = async (event) => {
 
     if (response.ok) {
       document.location.replace('/')
+    } else {
+      const error = await response.json();
+      handleErrors(error);
     }
-
-    const error = await response.json();
-    handleErrors(error);
 
   } catch (err) {
     console.log(err);
@@ -86,10 +86,10 @@ const login = (event) => {
 
     if (response.ok) {
       document.location.replace('/')
+    } else {
+      const error = await response.json();
+      handleErrors(error);
     }
-
-    const error = await response.json();
-    handleErrors(error);
 
   } catch (err) {
     console.log(err);
@@ -97,4 +97,4 @@ const login = (event) => {
 };
 
 signupForm.addEventListener("submit", signup);
-loginForm.addEventListener("submit");
+loginForm.addEventListener("submit", login);
