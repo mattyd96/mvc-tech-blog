@@ -1,14 +1,12 @@
 const router = require('express').Router();
 const auth = require('../../utils/auth');
-const { getHome, getWelcome } = require('../homeController');
+const { getLoginForm, getSignupForm } = require('../loginController');
 const { User, Post } = require('../../models');
 
-//router.use(auth);
-
 // GET home
-router.get('/', auth, getHome);
+router.get('/login', getLoginForm);
 
 // GET welcome if user not logged in
-router.get('/welcome', getWelcome);
+router.get('/signup', getSignupForm);
 
 module.exports = router;
