@@ -1,3 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+:root {
+  --nav-text: black;
+  --nav-text-hover: blue;
+}
+
+* {
+  font-family: 'Rubik', sans-serif;
+}
+
+/* Navbar */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  color: var(--nav-text);
+}
+
+nav li:hover, nav a:hover {
+  color: var(--nav-text-hover);
+  cursor: pointer;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--nav-text);
+}
+
+
+
 form {
   display: flex;
   flex-direction: column;
