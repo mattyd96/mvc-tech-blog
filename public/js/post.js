@@ -3,5 +3,9 @@ const gotoPost = id => {
 };
 
 const getPostForm = () => {
-  location.assign(`/posts/add`)
+  location.assign(`/posts/add`);
 };
+
+const getPostEditForm = id => {
+  location.assign(`/posts/update/${id}`);
+}
