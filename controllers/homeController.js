@@ -12,7 +12,6 @@ module.exports = {
             });
 
             const postList = posts.map((post) => post.get({ plain: true }));
-            console.log(postList);
 
             res.status(200).render('home', { logged_in, postList });
         } catch (err) {
