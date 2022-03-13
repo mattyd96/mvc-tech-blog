@@ -1,15 +1,20 @@
-const { Post } = require('../models');
+const { Post, User } = require('../models');
 
 module.exports = {
-    getHome: (req, res) => {
+    getHome: async (req, res) => {
         try {
             // get login status
             const logged_in = req.session.logged_in;
 
             // get all posts TODO this needs more arguments to included author etc
-            const posts = Post.findAll();
+            const posts = await Post.findAll({
+                include: [{ model: User, attributes: ['username']}],
+            });
 
-            res.status(200).render('dashboard', { logged_in });
+            const postList = posts.map((post) => post.get({ plain: true }));
+            console.log(postList);
+
+            res.status(200).render('home', { logged_in, postList });
         } catch (err) {
             //TODO: create error page
             res.status(500).json(err);

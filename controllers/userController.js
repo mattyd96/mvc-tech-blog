@@ -97,7 +97,7 @@ module.exports = {
       
     },
 
-    getDashboard: (req, res) => {
-      
+    logout: (req, res) => {
+
     }
 };

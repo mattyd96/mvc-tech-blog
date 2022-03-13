@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const auth = require('../../utils/auth');
-const { login, signup, getDashboard } = require('../userController');
+const { login, signup } = require('../userController');
 
 // GET dashboard
-router.get('/dashboard', auth, getDashboard);
+//router.get('/dashboard', auth, getDashboard);
 
 // GET login form
 router.post('/login', login);
