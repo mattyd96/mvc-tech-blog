@@ -14,5 +14,26 @@ module.exports = {
     console.log(postList);
 
     res.status(200).render('post', { logged_in, post: postList[0] });
+  },
+
+  getNewPost: async (req, res) => {
+    const logged_in = req.session.logged_in;
+    try {
+      res.status(200).render('addPost', { logged_in });
+    } catch (err) {
+      res.status(500).end();
+    }
+  },
+
+  addPost: async (req, res) => {
+    try {
+      const newPost = await Post.create({
+        user_id: req.session.user_id,
+        title: req.body.title,
+        content: req.body.content
+      });
+
+      res.status(200).end();
+    } catch (err) {res.status(500).end();}
   }
 }
