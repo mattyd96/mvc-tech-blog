@@ -1,14 +1,17 @@
 const router = require('express').Router();
 const auth = require('../../utils/auth');
-const { login, signup } = require('../userController');
+const { login, signup, logout } = require('../userController');
 
 // GET dashboard
 //router.get('/dashboard', auth, getDashboard);
 
-// GET login form
+// POST login -> login user
 router.post('/login', login);
 
-// GET signup form
+// POST signup -> signup new user
 router.post('/signup', signup);
+
+// POST signup -> signup new user
+router.post('/logout', logout);
 
 module.exports = router;
