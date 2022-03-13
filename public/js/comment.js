@@ -1,20 +1,19 @@
-const res = require("express/lib/response");
-
 const form = document.getElementById('comment-form');
 
 const addComment = async event => {
   event.preventDefault();
   const comment = document.getElementById('comment').value;
+  const post = window.location.pathname.split('/')[2];
   try {
-    const response = await fetch('comment/add', {
-      method: 'POST',
+    const response = await fetch('/comment/add', {
+      method: "POST",
       headers: {
-        'constent-type' : 'application/json'
+        "content-type" : "application/json"
       },
-      body: JSON.stringify({ comment })
+      body: JSON.stringify({ comment, post }),
     });
 
-    if (res.ok) {
+    if (response.ok) {
       window.location.reload();
     } else {
       console.log('could not add comment');
