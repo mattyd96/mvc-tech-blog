@@ -14,13 +14,23 @@
   font-family: 'Rubik', sans-serif;
 }
 
+body {
+  padding: 0 2rem;
+}
+
+main {
+  max-width: 75rem;
+  margin: auto;
+}
+
 /* Navbar */
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin: 2rem auto;
+  max-width: 75rem;
 }
 
 nav ul {
@@ -39,6 +49,11 @@ nav li:hover, nav a:hover {
 nav a {
   text-decoration: none;
   color: var(--nav-text);
+}
+
+#logo {
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 

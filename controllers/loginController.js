@@ -5,8 +5,8 @@ module.exports = {
 
         try {
             loginForm ? 
-            res.status(200).render('loginForm') :
-            res.status(200).render('signupForm');
+            res.status(200).render('loginForm', {style: 'signup-form'}) :
+            res.status(200).render('signupForm', {style: 'signup-form'});
 
         } catch (err) {
             //TODO: create error page

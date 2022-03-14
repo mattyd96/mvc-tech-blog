@@ -1,0 +1,47 @@
+#update-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+button {
+  padding: 1rem 2rem;
+  border: none;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#update-btn {
+  background-color: var(--post-title-bg);
+}
+
+#update-btn:hover {
+  background-color: #7795F9;
+}
+
+#delete-btn {
+  background-color: #CA2B16;
+}
+
+#delete-btn:hover {
+  background-color: #E94A35;
+}

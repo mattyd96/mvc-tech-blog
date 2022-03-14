@@ -1,0 +1,30 @@
+#add-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+#title-text {
+  padding: .5rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  padding: 1rem;
+  font-weight: 500;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: .25rem;
+}
+
+button:hover {
+  cursor: pointer;
+}

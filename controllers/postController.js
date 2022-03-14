@@ -18,7 +18,7 @@ module.exports = {
   getNewPost: async (req, res) => {
     const logged_in = req.session.logged_in;
     try {
-      res.status(200).render('addPost', { logged_in });
+      res.status(200).render('addPost', { logged_in, style: 'add-post' });
     } catch (err) {
       res.status(500).end();
     }
