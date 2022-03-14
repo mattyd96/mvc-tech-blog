@@ -4,12 +4,6 @@
   gap: 2rem;
 }
 
-.post {
-  border: .1rem solid black;
-  border-radius: .25rem;
-  overflow: hidden;
-}
-
 .post:hover {
   cursor: pointer;
 }
@@ -21,7 +15,7 @@
   padding: 0 1rem;
 }
 
-.user-time {
+.usertime {
   display: flex;
   gap: 1rem;
 }

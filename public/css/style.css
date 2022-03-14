@@ -40,7 +40,7 @@ nav a {
 
 
 
-form {
+/* form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -51,7 +51,7 @@ form {
 .form-input {
   display: flex;
   flex-direction: column;
-}
+} */
 
 .error {
   border-color: red;
@@ -59,4 +59,18 @@ form {
 
 .hidden {
   display: none;
+}
+
+
+/* card styles */
+.card {
+  border-radius: .25rem;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.usertime {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
