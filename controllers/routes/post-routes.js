@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { userAuth } = require('../../utils/auth');
-const { getPost, getNewPost, addPost, getUpdatePost, updatePost } = require('../postController');
+const { userAuth, userAuthFetch } = require('../../utils/auth');
+const { getPost, getNewPost, addPost, getUpdatePost, updatePost, deletePost } = require('../postController');
 
 // GET post form
 router.get('/add', userAuth, getNewPost);
@@ -12,7 +12,10 @@ router.post('/add', userAuth, addPost);
 router.get('/update/:id', userAuth, getUpdatePost);
 
 // PUT update post
-router.put('/update/:id', updatePost);
+router.put('/update/:id', userAuthFetch, updatePost);
+
+// DELETE post
+router.delete('/delete/:id', userAuthFetch, deletePost);
 
 // GET post
 router.get('/:id', getPost);

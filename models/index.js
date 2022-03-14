@@ -12,7 +12,7 @@ User.hasMany(Comment, {foreignKey: 'user_id'});
 Post.belongsTo(User, {foreignKey: 'user_id'});
 
 //Post has many comments
-Post.hasMany(Comment, {foreignKey: 'post_id'});
+Post.hasMany(Comment, {foreignKey: 'post_id', onDelete: 'CASCADE'});
 
 //Comment belongs to user
 Comment.belongsTo(User, {foreignKey: 'user_id'});

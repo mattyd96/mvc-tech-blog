@@ -47,7 +47,7 @@ module.exports = {
       if (posts) {
         const postList = posts.map((post) => post.get({ plain: true }));
 
-        res.status(200).render('updatePost', { logged_in, post: postList[0]});
+        res.status(200).render('updatePost', { logged_in, post: postList[0], style: 'update-post'});
       }
       
     } catch (err) {res.status(500).end();}
@@ -67,8 +67,9 @@ module.exports = {
   },
 
   deletePost: async (req, res) => {
+    console.log('delete');
     try {
-      const post = await Post.destroy({where: {id: req.params.id}});
+      const post = await Post.destroy({where: {id: req.body.id}});
 
       res.status(200).end();
     } catch (err) {
