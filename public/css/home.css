@@ -1,9 +1,31 @@
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.post {
+  border: .1rem solid black;
+  border-radius: .25rem;
+  overflow: hidden;
+}
+
+.post:hover {
+  cursor: pointer;
+}
+
 .title-container {
   display: flex;
   justify-content: space-between;
+  background-color: var(--post-title-bg);
+  padding: 0 1rem;
 }
 
 .user-time {
   display: flex;
   gap: 1rem;
+}
+
+.content-container {
+  padding: 0 1rem;
 }

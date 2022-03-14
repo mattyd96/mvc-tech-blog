@@ -1,4 +1,4 @@
-<article onclick="gotoPost('{{id}}')">
+<article class="post" onclick="gotoPost('{{id}}')">
   <section class="title-container">
     <h3>{{title}}</h3>
     <div class="user-time">
@@ -6,5 +6,7 @@
       <p>{{format_date createdAt}}</p>
     </div>
   </section>
-  <p>{{content}}</p>
+  <section class="content-container">
+    <p>{{content}}</p>
+  </section> 
 </article>

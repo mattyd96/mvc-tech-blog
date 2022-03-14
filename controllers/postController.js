@@ -7,12 +7,12 @@ module.exports = {
 
     const posts = await Post.findAll({
       where: {id : postId},
-      include: [{model: Comment, include: [{model: User}]}]
+      include: [{model: Comment, include: [{model: User}]}, {model: User}]
     });
 
     const postList = posts.map((post) => post.get({ plain: true }));
 
-    res.status(200).render('post', { logged_in, post: postList[0] });
+    res.status(200).render('post', { logged_in, post: postList[0], style: 'post' });
   },
 
   getNewPost: async (req, res) => {

@@ -3,6 +3,8 @@
 :root {
   --nav-text: black;
   --nav-text-hover: blue;
+
+  --post-title-bg: hsl(226, 91%, 62%);
 }
 
 * {
@@ -15,6 +17,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 nav ul {
