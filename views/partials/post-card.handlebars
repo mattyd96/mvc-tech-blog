@@ -1,5 +1,10 @@
 <article onclick="gotoPost('{{id}}')">
-  <h1>{{title}}</h1>
+  <section class="title-container">
+    <h3>{{title}}</h3>
+    <div class="user-time">
+      <p>{{user.username}}</p>
+      <p>{{format_date createdAt}}</p>
+    </div>
+  </section>
   <p>{{content}}</p>
-  <p>{{user.username}}</p>
 </article>

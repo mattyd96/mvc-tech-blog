@@ -13,7 +13,7 @@ module.exports = {
 
             const postList = posts.map((post) => post.get({ plain: true }));
 
-            res.status(200).render('home', { logged_in, postList });
+            res.status(200).render('home', { logged_in, postList, style: 'home' });
         } catch (err) {
             //TODO: create error page
             res.status(500).json(err);
