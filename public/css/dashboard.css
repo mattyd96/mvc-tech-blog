@@ -1,0 +1,18 @@
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.post-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: var(--dashboard-post-bg);
+}
+
+.post-item:hover {
+  background-color: var(--dashboard-post-bg-hover);
+  cursor: pointer;
+}

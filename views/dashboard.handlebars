@@ -1,8 +1,11 @@
 <h1>User Dashboard</h1>
 
-{{#each postList}}
-{{> dashboard-post-card}}
-{{/each}}
+<section class="posts">
+  {{#each postList}}
+  {{> dashboard-post-card}}
+  {{/each}}
+</section>
+
 
 <button onclick="getPostForm()">Add Post</button>
 

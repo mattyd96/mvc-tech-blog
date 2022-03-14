@@ -11,6 +11,6 @@ module.exports = {
 
     const postList = posts.map((post) => post.get({ plain: true }));
 
-    res.status(200).render('dashboard', { logged_in, postList });
+    res.status(200).render('dashboard', { logged_in, postList, style: 'dashboard' });
   }
 }

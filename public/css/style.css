@@ -5,6 +5,9 @@
   --nav-text-hover: blue;
 
   --post-title-bg: hsl(226, 91%, 62%);
+
+  --dashboard-post-bg: #A4A2A4;
+  --dashboard-post-bg-hover: #EEB902;
 }
 
 * {

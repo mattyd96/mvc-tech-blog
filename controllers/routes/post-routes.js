@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const auth = require('../../utils/auth');
+const { userAuth } = require('../../utils/auth');
 const { getPost, getNewPost, addPost, getUpdatePost, updatePost } = require('../postController');
 
 // GET post form
-router.get('/add', auth, getNewPost);
+router.get('/add', userAuth, getNewPost);
 
 // Post new post
-router.post('/add', auth, addPost);
+router.post('/add', userAuth, addPost);
 
 // GET update post form
-router.get('/update/:id', auth, getUpdatePost);
+router.get('/update/:id', userAuth, getUpdatePost);
 
 // PUT update post
 router.put('/update/:id', updatePost);
