@@ -17,12 +17,12 @@ module.exports = {
     login: async (req, res) => {
       // see if username exists
       const usernameExists = await User.findOne({   
-        where: { username: req.body.id }
+        where: { username: req.body.id.trim() }
       });
 
       // see if email exists
       const emailExists = await User.findOne({   
-        where: { email: req.body.id }
+        where: { email: req.body.id.trim() }
       });
 
       // get user if there is one that matches
@@ -31,8 +31,7 @@ module.exports = {
                     null;
 
       if(user) {
-        const passMatch = await user.checkPassword(req.body.password);
-        console.log(passMatch);
+        const passMatch = await user.checkPassword(req.body.password.trim());
 
         if(passMatch) {
           req.session.save(() => {
@@ -56,31 +55,33 @@ module.exports = {
 
         // see if username already exists
         const usernameExists = await User.findOne({   
-          where: { username: req.body.username }
+          where: { username: req.body.username.trim() }
         });
 
         // if it does return error message
         if (usernameExists) {
           errorList.push('username exists')
+        } 
+
+        if (req.body.username.length === 0) {
+          errorList.push('username')
         }
 
         // see if email already exists
         const emailExists = await User.findOne({   
-          where: { email: req.body.email }
+          where: { email: req.body.email.trim() }
         });
 
         // if it does return error message
         if (emailExists) {
-          res.status(400).json({
-            errorList: ['email exists'],
-          });
+          errorList.push('email exists')
         }
 
         // Create New user
         const newUser = await User.create({
-          username: req.body.username,
-          email: req.body.email,
-          password: req.body.password
+          username: req.body.username.trim(),
+          email: req.body.email.trim(),
+          password: req.body.password.trim()
         });
 
         req.session.save(() => {
