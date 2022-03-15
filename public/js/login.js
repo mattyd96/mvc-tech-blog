@@ -25,6 +25,10 @@ const handleErrors = err => {
             passErr.textContent = 'Please enter a password over 8 characters long';
             passErr.classList.remove('hidden');
         }
+        if(error === 'username') {
+          usernameErr.textContent = 'Please enter a username';
+          usernameErr.classList.remove('hidden');
+        }
         if(error === 'username exists') { 
             usernameErr.textContent = 'This username is taken';
             usernameErr.classList.remove('hidden');

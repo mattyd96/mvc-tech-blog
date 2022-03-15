@@ -49,8 +49,11 @@ module.exports = {
     },
 
     signup: async (req, res) => {
-      console.log(req.body.username);
+
+      const errorList = [];
+
       try {
+
         // see if username already exists
         const usernameExists = await User.findOne({   
           where: { username: req.body.username }
@@ -58,11 +61,8 @@ module.exports = {
 
         // if it does return error message
         if (usernameExists) {
-          res.status(400).json({
-            errorList: ['username exists']
-          });
+          errorList.push('username exists')
         }
-
 
         // see if email already exists
         const emailExists = await User.findOne({   
@@ -91,7 +91,8 @@ module.exports = {
         });
   
       } catch (err) {
-        const error = createErrorMessage(err.errors);
+        let error = createErrorMessage(err.errors);
+        error.errorList = error.errorList.concat(errorList);
         res.status(500).json(error);
       }
       
