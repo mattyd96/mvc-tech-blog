@@ -9,6 +9,7 @@
 
 .content-container {
   padding: 0 1rem;
+  white-space: pre-line;
 }
 
 .comments {

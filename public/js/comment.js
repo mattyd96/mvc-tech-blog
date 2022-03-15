@@ -2,6 +2,7 @@ const form = document.getElementById('comment-form');
 
 const addComment = async event => {
   event.preventDefault();
+  const errorDiv = document.getElementById('comment-error');
   const commentInput = document.getElementById('comment');
   const post = window.location.pathname.split('/')[2];
   const comment = commentInput.value;
@@ -20,6 +21,10 @@ const addComment = async event => {
     } else if (response.status === 302) {
       location.assign('/login');
     } else {
+      const res = await response.json();
+      if(res.error) {
+        errorDiv.classList.remove('hidden');
+      }
       console.log('could not add comment');
     }
   } catch (err) {

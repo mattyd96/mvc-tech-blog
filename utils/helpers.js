@@ -11,4 +11,9 @@ module.exports = {
 
     return `${hour}:${minute} ${day}/${month}/${year}`;
   },
+
+  substring: (str) => {
+    return str > 150 ? str.substring(0,150) + ` ...` :
+                       str.substring(0,150);
+  }
 };
