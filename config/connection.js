@@ -1,15 +1,22 @@
 const Sequelize = require('sequelize');
+const config = require('./db_heroku_config.json');
 require('dotenv').config();
 
-const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    host: 'localhost',
-    dialect: 'mysql',
-    port: 3306,
-  }
-);
+if(process.env.NODE_ENV) {
+  const sequelize = new Sequelize(process.env[config.heroku_db]);
+} else {
+  const sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    {
+      host: 'localhost',
+      dialect: 'mysql',
+      port: 3306,
+    }
+  );
+}
+
+
 
 module.exports = sequelize;
