@@ -1,0 +1,10 @@
+.container {
+  margin: auto;
+  text-align: center;
+  margin-top: 10rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0;
+}

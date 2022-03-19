@@ -21,5 +21,14 @@ module.exports = {
             //TODO: create error page
             res.status(500).json(err);
         }
+    },
+
+    // get 404 error page
+    get404: async (req,res) => {
+        // get login status
+        const logged_in = req.session.logged_in;
+
+        // render
+        res.status(404).render('404', {logged_in, style: '404'});
     }
 };
