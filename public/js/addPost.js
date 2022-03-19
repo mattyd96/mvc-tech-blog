@@ -20,9 +20,27 @@ const addPost = async event => {
     // if response is ok -> reload page
     if(response.ok) {
       location.assign('/dashboard');
+    } else {
+      postErrors(response.json());
     }
 
   } catch (err) {console.log(err)}
 };
+
+const postErrors = errors => {
+  const titleError = document.querySelector('.title-error');
+  const contentError = document.querySelector('.content-error');
+
+  titleError.classList.add('hidden');
+  contentError.classList.add('hidden');
+
+  if( errors.title) {  
+    titleError.classList.remove('hidden');
+  }
+
+  if(errors.content) {
+    contentError.classList.remove('hidden');
+  }
+}
 
 postForm.addEventListener('submit', addPost);

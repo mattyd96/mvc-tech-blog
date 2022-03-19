@@ -15,6 +15,7 @@ label {
 
 textarea {
   resize: vertical;
+  padding: .5rem;
 }
 
 button {
