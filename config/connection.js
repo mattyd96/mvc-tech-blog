@@ -4,6 +4,8 @@ require('dotenv').config();
 
 let sequelize;
 
+// If NODE_ENV is set (deployed on heroku) -> deploy jawsDB connection
+// else use local setup defined in .env
 if(process.env.NODE_ENV) {
   sequelize = new Sequelize(process.env[config.heroku_db]);
 } else {

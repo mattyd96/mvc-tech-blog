@@ -1,6 +1,7 @@
 module.exports = {
+    // load login or render form
     getForm: (req, res) => {
-
+        // check path -> render login or signup
         const loginForm = req.path === '/login' ? true : false;
 
         try {

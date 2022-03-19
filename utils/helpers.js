@@ -12,6 +12,7 @@ module.exports = {
     return `${hour}:${minute} ${day}/${month}/${year}`;
   },
 
+  // create substring for long post previews on homepage
   substring: (str) => {
     return str > 150 ? str.substring(0,150) + ` ...` :
                        str.substring(0,150);

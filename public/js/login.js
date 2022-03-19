@@ -40,6 +40,7 @@ const handleErrors = err => {
     });
 };
 
+// display login error
 const handleLoginErrors = err => {
   const loginErr = document.querySelector('#login-error');
 
@@ -50,14 +51,17 @@ const handleLoginErrors = err => {
   }
 }
 
+// sign up user
 const signup = async (event) => {
   event.preventDefault();
 
+  // get info
   const username = document.getElementById("signup-username").value;
   const email = document.getElementById("signup-email").value;
   const password = document.getElementById("signup-password").value;
 
   try {
+    // create user
     const response = await fetch("/user/signup", {
       method: "POST",
       headers: {
@@ -66,9 +70,11 @@ const signup = async (event) => {
       body: JSON.stringify({ username, email, password }),
     });
 
+    // on success reload homepage
     if (response.ok) {
       document.location.replace('/')
     } else {
+      // display login errors
       const error = await response.json();
       handleErrors(error);
     }
@@ -78,13 +84,16 @@ const signup = async (event) => {
   }
 };
 
+// login user
 const login = async (event) => {
   event.preventDefault();
 
+  // get info
   const id = document.getElementById("login-id").value;
   const password = document.getElementById("login-password").value;
 
   try{
+    // try login
     const response = await fetch("/user/login", {
       method: "POST",
       headers: {
@@ -93,6 +102,7 @@ const login = async (event) => {
       body: JSON.stringify({ id, password }),
     });
 
+    // go to home on success or display errrors
     if (response.ok) {
       document.location.replace('/')
     } else {

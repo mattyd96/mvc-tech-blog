@@ -29,11 +29,13 @@ module.exports = {
       const user =  usernameExists ? usernameExists : 
                     emailExists ? emailExists :
                     null;
-
+             
       if(user) {
+        // check password match
         const passMatch = await user.checkPassword(req.body.password.trim());
 
         if(passMatch) {
+          // create session
           req.session.save(() => {
             req.session.user_id = user.id;
             req.session.logged_in = true;
@@ -41,12 +43,14 @@ module.exports = {
           });
         }
       } else {
+        // send error back to client
         res.status(500).json({
           errorList: ['login']
         });
       }
     },
 
+    // sign up 
     signup: async (req, res) => {
 
       const errorList = [];
@@ -84,6 +88,7 @@ module.exports = {
           password: req.body.password.trim()
         });
 
+        // create session
         req.session.save(() => {
           req.session.user_id = newUser.id;
           req.session.logged_in = true;
@@ -92,6 +97,7 @@ module.exports = {
         });
   
       } catch (err) {
+        // create errorlist and send back to client
         let error = createErrorMessage(err.errors);
         error.errorList = error.errorList.concat(errorList);
         res.status(500).json(error);
@@ -99,7 +105,9 @@ module.exports = {
       
     },
 
+    // log user out
     logout: (req, res) => {
+      // destroy session
       if (req.session.logged_in) {
         req.session.destroy(() => {
           res.status(204).end();

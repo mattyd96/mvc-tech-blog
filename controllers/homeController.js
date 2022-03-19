@@ -1,6 +1,7 @@
 const { Post, User } = require('../models');
 
 module.exports = {
+    // get the home page
     getHome: async (req, res) => {
         try {
             // get login status
@@ -11,8 +12,10 @@ module.exports = {
                 include: [{ model: User, attributes: ['username']}],
             });
 
+            // reduce results
             const postList = posts.map((post) => post.get({ plain: true }));
 
+            // render
             res.status(200).render('home', { logged_in, postList, style: 'home' });
         } catch (err) {
             //TODO: create error page
